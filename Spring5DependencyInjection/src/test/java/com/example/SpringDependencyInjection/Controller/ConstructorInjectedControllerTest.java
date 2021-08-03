@@ -5,7 +5,7 @@
  */
 package com.example.SpringDependencyInjection.Controller;
 
-import com.example.SpringDependencyInjection.Services.GreetingServiceImpl;
+import com.example.SpringDependencyInjection.Services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ public class ConstructorInjectedControllerTest {
     
     @BeforeEach
     public void setUp() {
-        controller = new ConstructorInjectedController(new GreetingServiceImpl());
+        controller = new ConstructorInjectedController(new ConstructorGreetingService());
     }
     /**
      * Test of getGreeting method, of class ConstructorInjectedController.

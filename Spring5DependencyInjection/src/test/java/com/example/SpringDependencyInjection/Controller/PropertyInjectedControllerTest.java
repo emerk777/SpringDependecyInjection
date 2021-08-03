@@ -5,7 +5,7 @@
  */
 package com.example.SpringDependencyInjection.Controller;
 
-import com.example.SpringDependencyInjection.Services.GreetingServiceImpl;
+import com.example.SpringDependencyInjection.Services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +21,7 @@ public class PropertyInjectedControllerTest {
     public void setUp() {
         
        controller = new PropertyInjectedController();
-       controller.greetingService = new GreetingServiceImpl();
+       controller.greetingService = new ConstructorGreetingService();
        }
 
     @Test

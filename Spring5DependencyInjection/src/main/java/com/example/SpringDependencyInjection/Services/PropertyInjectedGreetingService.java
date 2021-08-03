@@ -7,12 +7,16 @@ package com.example.SpringDependencyInjection.Services;
 
 import org.springframework.stereotype.Service;
 
+/**
+ *
+ * @author emer
+ */
 @Service
-public class GreetingServiceImpl implements GreetingService {
+public class PropertyInjectedGreetingService implements GreetingService{
 
     @Override
     public String sayGreeting() {
-        return "Hello World";
+        return "Hello World - Property";
     }
     
 }
