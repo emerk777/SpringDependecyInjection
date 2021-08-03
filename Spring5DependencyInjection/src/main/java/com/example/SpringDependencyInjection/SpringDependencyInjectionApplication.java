@@ -1,6 +1,7 @@
 package com.example.SpringDependencyInjection;
 
 import com.example.SpringDependencyInjection.Controller.ConstructorInjectedController;
+import com.example.SpringDependencyInjection.Controller.I18nController;
 import com.example.SpringDependencyInjection.Controller.MyController;
 import com.example.SpringDependencyInjection.Controller.PropertyInjectedController;
 import com.example.SpringDependencyInjection.Controller.SetterInjectedController;
@@ -13,6 +14,9 @@ public class SpringDependencyInjectionApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDependencyInjectionApplication.class, args);
+                
+                I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+                System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 //		String greeting = myController.sayHello();
