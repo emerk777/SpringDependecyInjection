@@ -1,6 +1,9 @@
 package com.example.SpringDependencyInjection;
 
+import com.example.SpringDependencyInjection.Controller.ConstructorInjectedController;
 import com.example.SpringDependencyInjection.Controller.MyController;
+import com.example.SpringDependencyInjection.Controller.PropertyInjectedController;
+import com.example.SpringDependencyInjection.Controller.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,10 +15,20 @@ public class SpringDependencyInjectionApplication {
 		ApplicationContext ctx = SpringApplication.run(SpringDependencyInjectionApplication.class, args);
 
 		MyController myController = (MyController) ctx.getBean("myController");
-
 		String greeting = myController.sayHello();
-
 		System.out.println(greeting);
+                
+                System.out.println("----------------------- Property");
+                PropertyInjectedController propertyInjectedController  = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
+                System.out.println(propertyInjectedController.getGreeting());
+                
+                System.out.println("----------------------- Setter");                
+                SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
+                System.out.println(setterInjectedController.getGreeting());
+                
+                System.out.println("----------------------- Constructor");
+                ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+                System.out.println(constructorInjectedController.getGreeting());
 	}
 
 }
