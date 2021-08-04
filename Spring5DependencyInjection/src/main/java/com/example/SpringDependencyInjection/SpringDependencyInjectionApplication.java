@@ -3,6 +3,7 @@ package com.example.SpringDependencyInjection;
 import com.example.SpringDependencyInjection.Controller.ConstructorInjectedController;
 import com.example.SpringDependencyInjection.Controller.I18nController;
 import com.example.SpringDependencyInjection.Controller.MyController;
+import com.example.SpringDependencyInjection.Controller.PetController;
 import com.example.SpringDependencyInjection.Controller.PropertyInjectedController;
 import com.example.SpringDependencyInjection.Controller.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +16,12 @@ public class SpringDependencyInjectionApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDependencyInjectionApplication.class, args);
                 
+                PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("--- The Best Pet is ---");
+		System.out.println(petController.whichPetIsTheBest());
+                
                 I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+                System.out.println("--- The Default Profile is---");
                 System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
